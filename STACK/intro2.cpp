@@ -4,92 +4,97 @@ using namespace std;
 class Stack
 {
 public:
-    int *arr;
-    int size;
-    int top1;
-    int top2;
+  int *arr;
+  int size;
+  int top1;
+  int top2;
 
-    Stack(int capacity)
+  Stack(int capacity)
+  {
+    arr new int(capacity);
+    size = capacity;
+    top = -1;
+    top = size;
+  }
+  void push1(int value)
+  {
+    // if space available, then push
+    // else stack overflow ho jayega
+    if (top2 - top1 == 1)
     {
-      arr new int(capacity);
-      size = capacity;
-      top = -1;
-      top = size;
+      // cannot insert
+      cout << "stack overflow" << endl;
     }
-    void push1(int value)
+    else
     {
-      // if space available, then push
-      // else stack overflow ho jayega
-      if (top2 - top1 == 1)
-      {
-        // cannot insert
-        cout << "stack overflow" << endl;
-      }
-      else
-      {
-        top++;
-        arr[top1] = value;
-      }
+      top++;
+      arr[top1] = value;
     }
+  }
 
-    void push2(int value)
+  void push2(int value)
+  {
+    if (top2 - top1 == 1)
     {
-      if (top2 - top1 == 1)
-      {
-        cout << "stack overflow" << endl;
-      }
-      else
-      {
-        top2--;
-        arr[top] = value;
-      }
+      cout << "stack overflow" << endl;
     }
-
-    void pop1()
+    else
     {
-      // if element available then pop
-      //  if stack empty, then dont pop
-      if (top1 == -1)
-      {
-        // stack is empty
-        cout << "stack underflow" << endl;
-      }
-      else
-      {
-        arr[top1] = 0;
-        top1--;
-      }
+      top2--;
+      arr[top] = value;
     }
+  }
 
-    void pop2()
+  void pop1()
+  {
+    // if element available then pop
+    //  if stack empty, then dont pop
+    if (top1 == -1)
     {
-      if (top2 == size)
-      {
-        // stack 2 is empty
-        cout << "stack underflow" << endl;
-      }
-      else
-      {
-        arr[top2] = 0;
-        top++;
-      }
+      // stack is empty
+      cout << "stack underflow" << endl;
     }
-    void print()
+    else
     {
-      cout << "Top1: " << top1 << endl;
-      cout << "Top2: " < top2 << endl;
-
-      for (int i = 0; i < size; i++)
-      {
-        cout << arr[i] << " ";
-        cout << endl;
-      }
+      arr[top1] = 0;
+      top1--;
     }
+  }
 
-    int main(){
-      Stack s(5);
-      s.push(10);
-      s.print();
-      s.push
+  void pop2()
+  {
+    if (top2 == size)
+    {
+      // stack 2 is empty
+      cout << "stack underflow" << endl;
     }
+    else
+    {
+      arr[top2] = 0;
+      top2++;
+    }
+  }
+  void print()
+  {
+    cout << "Top1: " << top1 << endl;
+    cout << "Top2: " << top2 << endl;
+
+    for (int i = 0; i < size; i++)
+    {
+      cout << arr[i] << " ";
+      cout << endl;
+    }
+  }
+
+  int main()
+  {
+    Stack s(5);
+    s.push1(10);
+    s.print();
+    s.push2(90);
+    s.print();
+    s.pop1();
+    s.print();
+  }
+  return 0;
 }
